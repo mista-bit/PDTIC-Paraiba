@@ -41,11 +41,11 @@ export default function MeusAgendamentos() {
 
     try {
       await deleteInscricao(inscricaoId);
-      setMensagem(<X />, "Inscrição cancelada com sucesso!");
+      setMensagem("✅ Inscrição cancelada com sucesso!");
       carregarInscricoes(cidadao.id_cidadao);
       setTimeout(() => setMensagem(""), 3000);
     } catch (error) {
-      setMensagem(<X />, `Erro ao cancelar: ${error.message}`);
+      setMensagem(`❌ Erro ao cancelar: ${error.message}`);
       setTimeout(() => setMensagem(""), 5000);
     }
   }

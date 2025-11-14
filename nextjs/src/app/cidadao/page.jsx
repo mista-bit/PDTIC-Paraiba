@@ -68,7 +68,7 @@ export default function CidadaoDashboard() {
         modalidade: evento.modalidade,
       });
 
-      setMensagem("Inscrição realizada com sucesso!");
+      setMensagem("✅ Inscrição realizada com sucesso!");
 
       // Atualiza estatísticas
       const statsData = await getEstatisticasCidadao(cidadao.id_cidadao);
@@ -76,7 +76,7 @@ export default function CidadaoDashboard() {
 
       setTimeout(() => setMensagem(""), 5000);
     } catch (error) {
-      setMensagem(error.message);
+      setMensagem(`❌ ${error.message}`);
       setTimeout(() => setMensagem(""), 5000);
     }
   }
