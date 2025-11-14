@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getInscricoesCidadao, deleteInscricao } from "@/lib/api";
-import { Calendar, Mail, ChevronLeft } from "lucide-react";
+import { Calendar, Mail, ChevronLeft, Pin } from "lucide-react";
 
 export default function MeusAgendamentos() {
   const router = useRouter();

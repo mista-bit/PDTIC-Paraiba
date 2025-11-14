@@ -129,16 +129,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Configuração CORS para desenvolvimento
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Permite requisições do Next.js
-    "http://127.0.0.1:3000",  # Alternativa de localhost
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-
+CORS_ALLOW_ALL_ORIGINS = True  # Permite todas as origens (apenas para desenvolvimento)
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -161,6 +152,11 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 # Static files (CSS, JavaScript, Images)

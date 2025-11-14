@@ -41,7 +41,7 @@ export default function EventCard({ evento, onAgendar }) {
 
       <button
         onClick={() => onAgendar(evento)}
-        disabled={EventSource.vagas_disponiveisMod <= 0}
+        disabled={evento.vagas_disponiveisMod <= 0}
         className={`w-full py-2 px-4 rounded-lg font-semibold transition-colors ${
           evento.vagas_disponiveisMod > 0
             ? "bg-blue-600 text-white hover:brightness-90"

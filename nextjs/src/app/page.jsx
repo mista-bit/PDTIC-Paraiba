@@ -64,7 +64,8 @@ export default function HomePage() {
       localStorage.setItem("cidadao", JSON.stringify(novoCidadao));
       router.push("/cidadao");
     } catch (err) {
-      setError("Erro ao cadastrar. Verifique os dados e tente novamente.");
+      console.error("Erro ao cadastrar:", err);
+      setError(err.message || "Erro ao cadastrar. Verifique os dados e tente novamente.");
     } finally {
       setLoading(false);
     }
