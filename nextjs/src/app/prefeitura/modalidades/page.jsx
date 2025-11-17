@@ -28,7 +28,7 @@ export default function ModalidadesPage() {
     if (!confirm(`Deletar ${nome}?`)) return;
     try {
       await deleteModalidade(id);
-      setMensagem("Modalidade deletada!");
+      setMensagem("Modalidade deletada com sucesso");
       carregarModalidades();
       setTimeout(() => setMensagem(""), 3000);
     } catch (error) {
@@ -77,7 +77,7 @@ export default function ModalidadesPage() {
         {mensagem && (
           <div
             className={`mb-6 p-4 rounded-lg ${
-              mensagem.includes("✅")
+              mensagem.includes("sucesso")
                 ? "bg-green-100 text-green-700"
                 : "bg-red-100 text-red-700"
             }`}

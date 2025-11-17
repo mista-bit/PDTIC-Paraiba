@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getCidadaos, deleteCidadao } from "@/lib/api";
-import { Check, ChevronLeft, Trash, Users, Plus } from "lucide-react";
+import { ChevronLeft, Trash, Users, Plus } from "lucide-react";
 
 export default function CidadaosPage() {
   const [cidadaos, setCidadaos] = useState([]);
@@ -20,7 +20,7 @@ export default function CidadaosPage() {
       const data = await getCidadaos();
       setCidadaos(data);
     } catch (error) {
-      setMensagem(<X />, `Erro ao carregar: ${error.message}`);
+      setMensagem(`Erro ao carregar: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -31,11 +31,11 @@ export default function CidadaosPage() {
 
     try {
       await deleteCidadao(id);
-      setMensagem(<Check />, "Cidadão deletado com sucesso!");
+      setMensagem("Cidadão deletado com sucesso");
       carregarCidadaos();
       setTimeout(() => setMensagem(""), 3000);
     } catch (error) {
-      setMensagem(<X />, `Erro ao deletar: ${error.message}`);
+      setMensagem(`Erro ao deletar: ${error.message}`);
       setTimeout(() => setMensagem(""), 5000);
     }
   }
@@ -98,7 +98,7 @@ export default function CidadaosPage() {
         {mensagem && (
           <div
             className={`mb-6 p-4 rounded-lg ${
-              mensagem.includes(<Check />)
+              mensagem.includes("sucesso")
                 ? "bg-green-100 border border-green-400 text-green-700"
                 : "bg-red-100 border border-red-400 text-red-700"
             }`}

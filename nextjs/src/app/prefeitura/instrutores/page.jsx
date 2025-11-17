@@ -28,7 +28,7 @@ export default function InstrutoresPage() {
     if (!confirm(`Deletar ${nome}?`)) return;
     try {
       await deleteInstrutor(id);
-      setMensagem("Instrutor deletado!");
+      setMensagem("Instrutor deletado com sucesso");
       carregarInstrutores();
       setTimeout(() => setMensagem(""), 3000);
     } catch (error) {
@@ -78,7 +78,7 @@ export default function InstrutoresPage() {
         {mensagem && (
           <div
             className={`mb-6 p-4 rounded-lg ${
-              mensagem.includes("✅")
+              mensagem.includes("sucesso")
                 ? "bg-green-100 text-green-700"
                 : "bg-red-100 text-red-700"
             }`}

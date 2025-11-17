@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getCts, deleteCt } from "@/lib/api";
-import { Check, Plus, ChevronLeft, House, Trash } from "lucide-react";
+import { Plus, ChevronLeft, House, Trash } from "lucide-react";
 
 export default function CtsPage() {
   const [cts, setCts] = useState([]);
@@ -28,11 +28,11 @@ export default function CtsPage() {
     if (!confirm(`Deletar ${nome}?`)) return;
     try {
       await deleteCt(id);
-      setMensagem(<Check />, "CT deletado!");
+      setMensagem("CT deletado com sucesso");
       carregarCts();
       setTimeout(() => setMensagem(""), 3000);
     } catch (error) {
-      setMensagem(<X />, `${error.message}`);
+      setMensagem(`${error.message}`);
     }
   }
 
@@ -75,7 +75,7 @@ export default function CtsPage() {
         {mensagem && (
           <div
             className={`mb-6 p-4 rounded-lg ${
-              mensagem.includes(<Check />)
+              mensagem.includes("sucesso")
                 ? "bg-green-100 text-green-700"
                 : "bg-red-100 text-red-700"
             }`}
